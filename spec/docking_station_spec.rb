@@ -15,9 +15,18 @@ describe DockingStation do
 
   end
 
-  it 'docks bike' do
-    bike = Bike.new
-    expect(subject.dock(bike)).to eq bike
+  describe '#dock' do
+  it 'limits capacity' do
+    subject.dock(Bike.new)
+    expect {subject.dock(Bike.new)}.to raise_error("Full capacity")
+  end
+
+
+
+    it 'docks bike' do
+      bike = Bike.new
+      expect(subject.dock(bike)).to eq bike
+    end
   end
 
   it 'see bike docked' do
