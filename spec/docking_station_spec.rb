@@ -35,6 +35,12 @@ describe DockingStation do
     expect(subject.release_bike).to eq bike
   end
 
+  it 'checks if docking station full' do
+    expect(subject).not_to be_full
+  end
 
+  it 'checks if docking station empty' do
+    expect(subject).to be_empty
+  end
 
 end
