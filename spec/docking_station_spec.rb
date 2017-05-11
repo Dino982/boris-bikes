@@ -37,5 +37,8 @@ describe DockingStation do
     expect(subject.release_bike).to eq bike
   end
 
-
+  it 'sets default capacity' do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+  
 end
