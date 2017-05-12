@@ -40,5 +40,14 @@ describe DockingStation do
   it 'sets default capacity' do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
-  
+
+
+describe 'initialize' do
+  it 'has a variable capacity that equals an argument' do
+    docking_station = DockingStation.new(50)
+    50.times { docking_station.dock Bike.new }
+    expect { docking_station.dock Bike.new }.to raise_error 'Full capacity'
+  end
+end
+
 end
