@@ -43,9 +43,15 @@ describe DockingStation do
 
 
 describe 'initialize' do
-  it 'has a variable capacity that equals an argument' do
+  it 'has a variable capacity that equals an argument of 50' do
     docking_station = DockingStation.new(50)
     50.times { docking_station.dock Bike.new }
+    expect { docking_station.dock Bike.new }.to raise_error 'Full capacity'
+  end
+
+  it 'has a variable capacity that equals an argument of 20' do
+    docking_station = DockingStation.new(20)
+    20.times { docking_station.dock Bike.new }
     expect { docking_station.dock Bike.new }.to raise_error 'Full capacity'
   end
 end
